@@ -20,30 +20,28 @@
     </style>
   </head>
 
-  <body class="min-100-vh flex-column">
-    <header class="p-5 text-center text-white bg-primary">
-      <h1>Server-Side APIs</h1>
-    </header>
-    <main class="flex-row justify-center align-center col-auto p-4 bg-light">
-      <section class="card card-rounded col-7 bg-white">
-        <header class="card-header text-center">
-          <h2 class="text-white">
-            Fetch Demo
-          </h2>
-        </header>
-        <div class="text-center pt-4">
-          <button class="btn btn-danger" id="fetch-button">
-            Click Me
-          </button>
-        </div>
-        <table class="card-body table mx-auto my-4">
-          <th>
-            <p class="my-4">Results</p>
-          </th>
-          <tbody id="repo-table" class="mx-auto text-center"></tbody>
-        </table>
-      </section>
-      <script src="./assets/js/script.js"></script>
-    </main>
-  </body>
+  <body>
+
+    <h1>JavaScript Fundamentals Quiz</h1>
+
+    <button id="startBtn">Start Quiz</button>
+    
+    <div id="quiz" class="hidden">
+        <div id="timer">Time Left: 30</div>
+        <div id="question"></div>
+        <ul id="choices"></ul>
+        <div id="feedback"></div>
+    </div>
+
+    <div id="end" class="hidden">
+        Your Score: <span id="score"></span> <br>
+        Enter initials: <input type="text" id="initials">
+        <button id="submitScore">Submit Score</button>
+        <button id="goBack">Go Back</button>
+        <button id="clearScores">Clear High Scores</button>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
 </html>
