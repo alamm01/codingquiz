@@ -1,4 +1,4 @@
-var startBtn = document.getElementById('startBtn');
+const startBtn = document.getElementById('startBtn');
 const quizDiv = document.getElementById('quiz');
 const timerDiv = document.getElementById('timer');
 const questionDiv = document.getElementById('question');
@@ -78,7 +78,6 @@ startBtn.addEventListener('click', startQuiz);
 goBackBtn.addEventListener('click', () => location.reload()); // Reload the page to restart
 // Implement clearScoresBtn and submitScoreBtn functionality as needed.
 
-// ... [Previous Code] ...
 
 const highScoresDiv = document.createElement('div'); // to display high scores
 
