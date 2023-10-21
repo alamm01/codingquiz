@@ -10,9 +10,11 @@ const initialsInput = document.getElementById('initials');
 const submitScoreBtn = document.getElementById('submitScore');
 const goBackBtn = document.getElementById('goBack');
 const clearScoresBtn = document.getElementById('clearScores');
+const highScoresDiv = document.createElement('div'); 
 
 var timer = 30;
 var currentQuestionIndex = 0;
+var timerInterval;
 
 const questions = [{
         question: "Which of these is not a JavaScript data type?",
@@ -25,7 +27,7 @@ const questions = [{
         answer: "JSON.parse()"
     }
 ];
-var timerInterval
+
 function startQuiz() {
     startBtn.classList.add('hidden');
     quizDiv.classList.remove('hidden');
@@ -78,8 +80,11 @@ startBtn.addEventListener('click', startQuiz);
 goBackBtn.addEventListener('click', () => location.reload()); // Reload the page to restart
 // Implement clearScoresBtn and submitScoreBtn functionality as needed.
 
-
-const highScoresDiv = document.createElement('div'); // to display high scores
+submitScoreBtn.addEventListener("click", endTheQuiz)
+function endTheQuiz(){
+    console.log("Quiz edded");
+    endQuiz()
+};
 
 function endQuiz() {
     clearInterval(timerInterval); //added to fix timer not ending
@@ -92,6 +97,8 @@ function endQuiz() {
 function saveHighScore(score) {
     const storedScores = JSON.parse(localStorage.getItem("highScores") || "[]");
     const userInitials = initialsInput.value;
+
+    console.log(userInitials, "UserInitials!!!!");
     storedScores.push({ initials: userInitials, score: score });
     localStorage.setItem("highScores", JSON.stringify(storedScores));
 }
@@ -99,9 +106,13 @@ function saveHighScore(score) {
 function displayHighScores() {
     const storedScores = JSON.parse(localStorage.getItem("highScores") || "[]");
     highScoresDiv.innerHTML = "<h2>High Scores:</h2>";
-    storedScores.forEach(scoreObj => {
-        highScoresDiv.innerHTML += `<p>${scoreObj.initials} - ${scoreObj.score}</p>`;
-    });
+    
+    for (var i = 0; i < storedScores.length; i++) {
+        var scoreObj = storedScores[i];
+        var scoreEntry = "<p>" + scoreObj.initials + ": " + scoreObj.score + "</p>";
+        highScoresDiv.innerHTML += scoreEntry;
+    }
+    
     document.body.appendChild(highScoresDiv); // Add the scores div to the body
 }
 
