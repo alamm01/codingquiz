@@ -24,13 +24,13 @@ const questions = [{
         choices: ["JSON.stringify()", "JSON.parse()", "JSON.toObject()", "JSON.toString()"],
         answer: "JSON.parse()"
     }
-    // Add more questions as needed
 ];
+var timerInterval
 function startQuiz() {
     startBtn.classList.add('hidden');
     quizDiv.classList.remove('hidden');
     askQuestion();
-    setInterval(function() {
+    timerInterval = setInterval(function() {
         timer--;
         timerDiv.textContent = "Time Left: " + timer;
         if (timer <= 0) {
@@ -82,6 +82,7 @@ goBackBtn.addEventListener('click', () => location.reload()); // Reload the page
 const highScoresDiv = document.createElement('div'); // to display high scores
 
 function endQuiz() {
+    clearInterval(timerInterval); //added to fix timer not ending
     quizDiv.classList.add('hidden');
     endDiv.classList.remove('hidden');
     scoreSpan.textContent = timer;
