@@ -3,7 +3,7 @@ Help take a timed quiz on JavaScript fundamentals
 
 ## Description
 
-Please try to finish the quiz in 30 seconds. For each mistake the total time will be reduced by 10 seconds.
+Please try to finish the quiz in 30 seconds. For each mistake the total time will be reduced by 10 seconds. The score is determined based on the number of seconds left.
 
 ### Purpose
 

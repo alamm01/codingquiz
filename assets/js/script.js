@@ -16,7 +16,8 @@ var timer = 30;
 var currentQuestionIndex = 0;
 var timerInterval;
 
-const questions = [{
+const questions = [
+    {
         question: "Which of these is not a JavaScript data type?",
         choices: ["Number", "String", "Boolean", "Table"],
         answer: "Table"
@@ -25,8 +26,24 @@ const questions = [{
         question: "Which method can turn a JSON string into a JavaScript object?",
         choices: ["JSON.stringify()", "JSON.parse()", "JSON.toObject()", "JSON.toString()"],
         answer: "JSON.parse()"
+    },
+    {
+        question: "Which of these is not a JavaScript looping structure?",
+        choices: ["for", "foreach", "while", "underloop"],
+        answer: "underloop"
+    },
+    {
+        question: "What does the 'this' keyword refer to inside a JavaScript object method?",
+        choices: ["The window object", "The method itself", "The object the method is a part of", "Undefined"],
+        answer: "The object the method is a part of"
+    },
+    {
+        question: "What will be the output of '2' + 3 + 4 in JavaScript?",
+        choices: ["9", "234", "54", "Error"],
+        answer: "234"
     }
 ];
+
 
 function startQuiz() {
     startBtn.classList.add('hidden');
@@ -70,11 +87,6 @@ function checkAnswer(choice) {
     setTimeout(askQuestion, 1000); // Delay for 1 second before the next question
 }
 
-function endQuiz() {
-    quizDiv.classList.add('hidden');
-    endDiv.classList.remove('hidden');
-    scoreSpan.textContent = timer;
-}
 
 startBtn.addEventListener('click', startQuiz);
 goBackBtn.addEventListener('click', () => location.reload()); // Reload the page to restart
@@ -83,15 +95,16 @@ goBackBtn.addEventListener('click', () => location.reload()); // Reload the page
 submitScoreBtn.addEventListener("click", endTheQuiz)
 function endTheQuiz(){
     console.log("Quiz edded");
-    endQuiz()
+    scoreSpan.textContent = timer;
+    saveHighScore(timer);
+    
 };
 
 function endQuiz() {
     clearInterval(timerInterval); //added to fix timer not ending
     quizDiv.classList.add('hidden');
     endDiv.classList.remove('hidden');
-    scoreSpan.textContent = timer;
-    saveHighScore(timer);
+
 }
 
 function saveHighScore(score) {
@@ -101,12 +114,13 @@ function saveHighScore(score) {
     console.log(userInitials, "UserInitials!!!!");
     storedScores.push({ initials: userInitials, score: score });
     localStorage.setItem("highScores", JSON.stringify(storedScores));
+    displayHighScores();
 }
 
 function displayHighScores() {
     const storedScores = JSON.parse(localStorage.getItem("highScores") || "[]");
     highScoresDiv.innerHTML = "<h2>High Scores:</h2>";
-    
+
     for (var i = 0; i < storedScores.length; i++) {
         var scoreObj = storedScores[i];
         var scoreEntry = "<p>" + scoreObj.initials + ": " + scoreObj.score + "</p>";
@@ -125,3 +139,12 @@ clearScoresBtn.addEventListener('click', () => {
 displayHighScores();
 
 
+var li = document.createElement("li");
+li.innerHTML = "Forido";
+document.getElementById("fruitList").appendChild(li);
+
+
+var itemNew = document.createElement("li")
+itemNew.innerHTML = "Item3"
+var itemParent = document.getElementById("itemList");
+itemParent.appendChild(itemNew);
