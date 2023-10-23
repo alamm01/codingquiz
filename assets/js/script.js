@@ -110,8 +110,9 @@ function endQuiz() {
 function saveHighScore(score) {
     const storedScores = JSON.parse(localStorage.getItem("highScores") || "[]");
     const userInitials = initialsInput.value;
-
-    console.log(userInitials, "UserInitials!!!!");
+    if (score<0){
+        score = 0;
+    };
     storedScores.push({ initials: userInitials, score: score });
     localStorage.setItem("highScores", JSON.stringify(storedScores));
     displayHighScores();

@@ -3,7 +3,7 @@ Help take a timed quiz on JavaScript fundamentals
 
 ## Description
 
-Please try to finish the quiz in 30 seconds. For each mistake the total time will be reduced by 10 seconds. The score is determined based on the number of seconds left.
+Please try to finish the quiz in 30 seconds. For each mistake the total time will be reduced by 10 seconds. The score is determined based on the number of seconds left. The lowset possible score is 0.
 
 ### Purpose
 
@@ -15,7 +15,7 @@ The primary features of this wbsite:
 ## Website 
 
 ### URL
-https://alamm01.github.io/css_demo/
+https://alamm01.github.io/codingquiz
 
 ### Screenshot
 ![Web Page Screenshot](./assets/image/screen.png)
