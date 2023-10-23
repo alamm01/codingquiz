@@ -18,10 +18,8 @@ The primary features of this wbsite:
 https://alamm01.github.io/css_demo/
 
 ### Screenshot
-
 ![Web Page Screenshot](./assets/image/screen.png)
 
 
 ## Conclusion
-
-This website will be updated as new website projects are completed.
+This website will be updated with more questions, stay tuned!
